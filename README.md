@@ -12,7 +12,6 @@ Its up to you if you want to allow character to level dip how they want, and the
    Characters at the moment can only have one class of each class group. I.e. Warriors, Rogues, etc. 
 
    I also use The Way Revised as my table's psionic rules which can be found here: https://drive.google.com/file/d/1WrrKKe-Y4Qhgjnd3tXzccvK_-hikQuf7/view?usp=sharing
-If you don't want to use those leveling rules or that specific document for Psionics.
 
    Skills and Powers Psionics is kinda baked in, but you're free to ignore the MTHAC0 portion, and the house rules turned off should let you fill in the max PSP manually.
 Feel free to completely ignore the Psionics section, altogether. I placed it at the bottom for just that purpose ;)
