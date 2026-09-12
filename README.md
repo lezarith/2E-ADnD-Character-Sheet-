@@ -19,3 +19,4 @@ Feel free to completely ignore the Psionics section, altogether. I placed it at 
 
 
 
+As a disclaimer, I am not a programmer, just a hobbyist. I did have to use AI to get this code wrote and running. I am staunchly against using AI to steal creative works and pollute our centers of media, water, and air. I do, however, believe that used for the right reasons and for the right thing, and with the right regulations it can be an incredible tool.
