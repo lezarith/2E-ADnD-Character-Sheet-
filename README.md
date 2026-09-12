@@ -16,6 +16,6 @@ Its up to you if you want to allow character to level dip how they want, and the
    Skills and Powers Psionics is kinda baked in, but you're free to ignore the MTHAC0 portion, and the house rules turned off should let you fill in the max PSP manually.
 Feel free to completely ignore the Psionics section, altogether. I placed it at the bottom for just that purpose ;)
 
-
+the link to the io is : https://lezarith.github.io/2E-ADnD-Character-Sheet-/
 
 As a disclaimer, I am not a programmer, just a hobbyist. I did have to use AI to get this code wrote and running. I am staunchly against using AI to steal creative works and pollute our centers of media, water, and air. I do, however, believe that used for the right reasons and for the right thing, and with the right regulations it can be an incredible tool.
