@@ -462,13 +462,13 @@ div.input {
 	box-sizing: border-box;
 	font-size: 9.5pt;
 	background: none;
-	transform: translate(0, 1pt);
+	transform: translate(0, -.1pt);
 	outline: none;
 }
 
 #character #character-name {
 	font-size: 11.3pt;
-	transform: translate(0, -1pt);
+	transform: translate(0, -.1pt);
 	box-sizing: border-box;
 }
 
@@ -1375,7 +1375,7 @@ textarea.wis-spell-immun.clicked-bg {
 	width: 4.3cm;
 	margin: 0;
 	box-sizing: border-box;
-	transform: translate(0, -1pt);
+	transform: translate(0, -.1pt);
 	font-size: 8.5pt;
 }
 
@@ -1422,7 +1422,7 @@ textarea.wis-spell-immun.clicked-bg {
 	margin: 0;
 	background: none;
 	box-sizing: border-box;
-	transform: translate(0, -1pt); /* Nudges all text up 1pt relative to their bottom border */
+	transform: translate(0, -.1pt); /* Nudges all text up 1pt relative to their bottom border */
 	font-size: 8.5pt;
 }
 
@@ -1607,7 +1607,7 @@ textarea.wis-spell-immun.clicked-bg {
 	width: 100%;
 	border: 0;
 	text-align: center;
-	transform: translate(0, -1pt);
+	transform: translate(0, -.1pt);
 }
 
 #gear td:nth-child(1) input[type=text]
@@ -3233,9 +3233,15 @@ X:before
 		<div id="special-abilities">
 			<table vertical-tabindex>
 				<thead>
+					<div id="special-abilities">
+			<table vertical-tabindex>
+				<thead>
 					<tr><th colspan=2>Special abilities</th></tr>
 				</thead>
 				<tbody>
+					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
+					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
+					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
 					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
 					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
 					<tr><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td><td><div><input type='text' oninput="fit_text(this, 14, 8);"/></div></td></tr>
@@ -3261,6 +3267,14 @@ X:before
 					<tr><th>Non-weapon proficiencies</th><th>Weapon proficiencies</th></tr>
 				</thead>
 				<tbody>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
+					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
 					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
 					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
 					<tr><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/>(<input type='text' oninput="fit_text(this, 14, 8);"/>/<input type='text' oninput="fit_text(this, 14, 8);"/>)</span></div></td><td><div><span><input type='text' oninput="fit_text(this, 14, 8);"/></span></div></td></tr>
@@ -6371,11 +6385,13 @@ function save() {
 	file.font = font_list ? font_list.value : "EB Garamond";
 	file.colour = c ? c.value.trim() : "";
 	
-	let uri = encodeURI("data:application/json;charset=utf-8," + JSON.stringify(file));
-	uri = uri.replace(/#/g, '%23');
+	// Format JSON with 2-space indentation for multi-line output
+	const jsonString = JSON.stringify(file, null, 2);
+	const blob = new Blob([jsonString], { type: "application/json;charset=utf-8" });
+	const url = URL.createObjectURL(blob);
 	
 	const link = document.createElement("a");
-	link.setAttribute("href", uri);
+	link.setAttribute("href", url);
 	
 	const charNameInput = document.getElementById("character-name");
 	let character_name = charNameInput && charNameInput.value ? charNameInput.value.trim() : "unnamed";
@@ -6384,7 +6400,8 @@ function save() {
 	link.setAttribute("download", character_name + ".json");
 	document.body.appendChild(link);
 	link.click();
-	link.remove();
+	document.body.removeChild(link);
+	URL.revokeObjectURL(url);
 }
 
 function on_drag_enter(e) {
