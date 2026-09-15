@@ -551,6 +551,27 @@ div.input {
 	right: 0;
 }
 
+
+/* Dropdown Select Appearance */
+/*#race-select {
+    background-color: transparent;
+    color: #333333;
+    /*border: 1px solid #cccccc;*/
+    /*padding: 6px 10px;
+    font-size: 10px;
+    font-family: inherit;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: -1cm;
+    right: 3cm;
+}
+
+#race-select:focus {
+    border-color: Transparent;
+   
+}
 /* Margin offset for inline table rest buttons */
 #spells .rest-btn {
 	margin-top: 3px;
@@ -576,7 +597,7 @@ div.input {
 	margin-top: 0.02cm;
 	margin-bottom: .07cm;
 	width: 11.3cm;
-	height: 1.6cm;
+	height: 1.3cm;
 	overflow: hidden;
 	box-sizing: border-box;
 }
@@ -608,7 +629,7 @@ div.input {
 #xp #total-xp
 {
 	width: 100%;
-	height: .5cm;
+	height: .4cm;
 	box-sizing: border-box;
 	text-align: center;
 	font-size: 14pt; /* Reduced from 22pt so total-xp fits in .5cm without clipping */
@@ -662,7 +683,7 @@ div.input {
 #abilities
 {
 	float: left;
-	height: calc(3.64cm + 2pt);
+	height: 4.4cm;
 }
 
 #abilities table
@@ -821,14 +842,15 @@ textarea.wis-spell-immun.clicked-bg {
 
 #movement
 {
-	float: left;
+	position: absolute;
 	font-size: 8pt;
 	margin: -2.12cm 1.5mm 0 2mm;
-	width: 3.5cm;
-	height: 5.75cm;
 	border: 1pt solid black;
 	box-sizing: border-box;
-	position: relative; /* Anchor point for the pseudo-element */
+	height: 5.75cm;
+	width:  3.58cm;
+	top: 4.82cm;
+	right: 4.73cm;
 }
 
 /* Inset line positioned at the bottom of the 5th row (11.11% * 5) */
@@ -900,12 +922,15 @@ textarea.wis-spell-immun.clicked-bg {
    ========================================================================== */
 
 #saving-throws {
-	float: right;
+	position: absolute;
 	margin-top: -5.75cm;
 	border: 1pt solid black;
 	font-size: 7.5pt;
 	text-align: center;
 	height: 5.7cm;
+	width:  3.58cm;
+	top: 8.45cm;
+	right: 30pt;
 }
 
 #saving-throws table {
@@ -924,7 +949,7 @@ textarea.wis-spell-immun.clicked-bg {
 	margin: 0 1mm;
 	border: 0;
 	border-bottom: 1pt solid black;
-	width: 0.8cm;
+	width: 0.7cm;
 	height: 14.75pt;
 	background: transparent;
 	outline: none;
@@ -940,7 +965,7 @@ textarea.wis-spell-immun.clicked-bg {
 	border: 1pt solid black;
 	font-size: 8pt;
 	margin-top: 0.5cm;
-	width: 11.2cm;
+	width: 11.3cm;
 	height: 2.6cm;
 	/*min-height: 2.3cm;      /* Allows the box to grow vertically if needed */
 	/*height: auto;           /* Prevents contents from spilling out of the bottom */
@@ -1115,8 +1140,8 @@ textarea.wis-spell-immun.clicked-bg {
 	border: 1pt solid black;
 	font-size: 7.5pt;
 	margin-top: 0.5cm;
-	width: 7.13cm;
-	height: 2.5cm;
+	width: 7.4cm;
+	height: 2.55cm;
 }
 
 #hp table
@@ -1612,7 +1637,7 @@ textarea.wis-spell-immun.clicked-bg {
 	width: 100%;
 	border: 0;
 	text-align: center;
-	transform: translate(0, -.1pt);
+	transform: translate(0, -1pt);
 }
 
 #gear td:nth-child(1) input[type=text]
