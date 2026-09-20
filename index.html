@@ -1380,7 +1380,7 @@ textarea.wis-spell-immun.clicked-bg {
 	font-size: 9pt;
 }
 
-/* Utility class to hide Priest row for Monks */
+/* Utility class to hide Priest row for Scarlet Brotherhood Monks */
 .hidden-row {
 	display: none !important;
 }
@@ -2726,7 +2726,7 @@ X:before
 							<option value="Cleric">Cleric</option>
 							<option value="Druid">Druid</option>
 							<option value="Priest">Priest</option>
-							<option value="Monk">Monk</option>
+							<option value="Monk (SB)">Monk (SB)</option>
 							<option value="Crusader">Crusader</option>
 							<option value="Templar">Templar</option>
 							<option value="Shaman">Shaman</option>
@@ -6646,7 +6646,7 @@ function getClassArchetype(selectedClass) {
 
     if (['warrior', 'fighter', 'paladin', 'ranger', 'barbarian', 'gladiator', 'harper', 'berserker', 'runecaster'].includes(lower)) return 'warrior';
     if (['rogue', 'thief', 'bard', 'assassin', 'trader', 'ninja', 'shadow walker'].includes(lower)) return 'rogue';
-    if (['priest', 'cleric', 'druid', 'monk', 'crusader', 'templar', 'shaman', 'mystic'].includes(lower)) return 'priest';
+    if (['priest', 'cleric', 'druid', 'monk (SB)', 'crusader', 'templar', 'shaman', 'mystic'].includes(lower)) return 'priest';
     if (['wizard', 'generalist', 'specialist', 'channeller', 'warlock', 'witch', 'defiler', 'preserver', 'spellsinger', 'wu jen', 'mage'].includes(lower)) return 'wizard';
     if (['psionicist', 'controller', 'creator', 'kineticist', 'far-senser', 'life-shaper'].includes(lower)) return 'psionicist';
 
@@ -7428,7 +7428,7 @@ function updateSpells() {
     const wizMaxLvl = Math.min(Math.max(wizLvl, 0), 20);
     let priestMaxLvl = Math.min(Math.max(priestLvl, 0), 20);
 
-    if (priestSelect && priestSelect.value === 'Monk') priestMaxLvl = 0;
+    if (priestSelect && priestSelect.value === 'Monk (SB)') priestMaxLvl = 0;
 
     const priestBonus = getPriestBonusSpells(wisScore);
     const wizardMaxKnown = getWizardMaxSpellsKnown(intScore);
@@ -7730,7 +7730,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (priestSelect && priestRow) {
         const handleMonkCheck = () => {
-            if (priestSelect.value === 'Monk') {
+            if (priestSelect.value === 'Monk (SB)') {
                 priestRow.querySelectorAll('.curr-slot').forEach(input => input.value = '');
             }
         };
