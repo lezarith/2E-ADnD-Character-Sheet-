@@ -6927,9 +6927,9 @@ function updateThievingSkills() {
 const CLASS_HP_RULES = {
     warrior:    { hd: 10, avgHD: 6, maxHDLevel: 9,  plusHP: 3 },
     priest:     { hd: 8,  avgHD: 5, maxHDLevel: 9,  plusHP: 2 },
-    rogue:      { hd: 6,  avgHD: 4, maxHDLevel: 10, plusHP: 2 }, // Fixed hd: 8 -> 6
+    rogue:      { hd: 6,  avgHD: 4, maxHDLevel: 10, plusHP: 2 }, 
     wizard:     { hd: 4,  avgHD: 3, maxHDLevel: 10, plusHP: 1 },
-    psionicist: { hd: 8,  avgHD: 5, maxHDLevel: 9,  plusHP: 2 }  // Fixed hd: 6 -> 8
+    psionicist: { hd: 8,  avgHD: 5, maxHDLevel: 9,  plusHP: 2 }, 
 };
 
 function getConBonus(conScore, isWarrior) {
@@ -7268,18 +7268,20 @@ function updateCharacterCalculations() {
         const modeInput = document.getElementById('class-mode');
         const modeLabel = document.getElementById('class-mode-label');
         const houseRuleInput = document.getElementById('house-rule');
+        const levelLossInput = document.getElementById('level-loss');
 
         let isDual = modeInput && modeInput.value === 'dual';
         const isHouseRuleOn = houseRuleInput ? houseRuleInput.value === 'on' : true;
+        const isLevelLossOn = levelLossInput && levelLossInput.value === 'on';
 
-        if (activeClassData.length > 1 && modeInput && isHouseRuleOn) {
+        // FIXED: Removed flawed `secondarySurpassed` calculation that broke Warrior dual-classing
+        if (activeClassData.length > 1 && modeInput && isHouseRuleOn && !isLevelLossOn) {
             const primaryLevel = activeClassData[0].level;
             const allSameLevel = activeClassData.every(item => item.level === primaryLevel);
             const equalReached = modeInput.getAttribute('data-equal-reached') === 'true';
-            const secondarySurpassed = activeClassData.slice(1).some(item => item.level > primaryLevel);
 
             if (isDual) {
-                if ((equalReached && !allSameLevel) || secondarySurpassed) {
+                if (equalReached && !allSameLevel) {
                     isDual = false;
                     modeInput.value = 'multi';
                     if (modeLabel) modeLabel.innerText = 'Multi-class';
@@ -7290,7 +7292,7 @@ function updateCharacterCalculations() {
             } else if (!allSameLevel) {
                 modeInput.setAttribute('data-equal-reached', 'false');
             }
-        }
+        } 
 
         let finalMaxHP = 0;
 
@@ -7309,6 +7311,49 @@ function updateCharacterCalculations() {
             finalMaxHP = Math.floor(totalMultiHP / activeClassData.length);
         }
 
+        // Half-Giant: Double ONLY Base Class HP (Excludes CON Bonus)
+        const raceSelect = document.getElementById('race-select') || document.getElementById('race');
+        if (raceSelect && raceSelect.value === "Half-Giant") {
+            const conInput = document.getElementById('con') 
+                || document.getElementById('constitution') 
+                || document.getElementById('ability-con');
+            const conScore = conInput ? (parseInt(conInput.value, 10) || 10) : 10;
+            
+            let totalConHP = 0;
+
+            if (isDual) {
+                let maxLevelCovered = 0;
+                activeClassData.forEach(item => {
+                    const hpRules = typeof CLASS_HP_RULES !== 'undefined' ? CLASS_HP_RULES[item.groupKey] : null;
+                    const isWarrior = item.groupKey === 'warrior';
+                    const conBonus = typeof getConBonus === 'function' ? getConBonus(conScore, isWarrior) : 0;
+                    const maxHD = hpRules ? hpRules.maxHDLevel : 9;
+
+                    if (item.level > maxLevelCovered) {
+                        for (let lvl = maxLevelCovered + 1; lvl <= item.level; lvl++) {
+                            if (lvl <= maxHD) totalConHP += conBonus;
+                        }
+                        maxLevelCovered = item.level;
+                    }
+                });
+            } else {
+                let multiConSum = 0;
+                activeClassData.forEach(item => {
+                    const hpRules = typeof CLASS_HP_RULES !== 'undefined' ? CLASS_HP_RULES[item.groupKey] : null;
+                    const isWarrior = item.groupKey === 'warrior';
+                    const conBonus = typeof getConBonus === 'function' ? getConBonus(conScore, isWarrior) : 0;
+                    const maxHD = hpRules ? hpRules.maxHDLevel : 9;
+
+                    const levelsWithCon = Math.min(item.level, maxHD);
+                    multiConSum += (levelsWithCon * conBonus);
+                });
+                totalConHP = Math.floor(multiConSum / (activeClassData.length || 1));
+            }
+
+            const baseHP = Math.max(0, finalMaxHP - totalConHP);
+            finalMaxHP = (baseHP * 2) + totalConHP;
+        }
+
         hpMaxOutput.value = finalMaxHP > 0 ? finalMaxHP : "";
         if (typeof window.fit_text === 'function') window.fit_text(hpMaxOutput, 14, 8);
     }
@@ -7316,7 +7361,6 @@ function updateCharacterCalculations() {
     validateCurrentHP();
     updateDevotion();
 
-    // Safely trigger PSP calculation logic
     if (typeof window.calculateCustomMaxPSP === 'function') {
         window.calculateCustomMaxPSP();
     }
